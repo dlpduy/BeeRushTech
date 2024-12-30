@@ -260,8 +260,7 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.8.0</version>
 				<configuration>
-					<source>11</source> <!-- Hoặc phiên bản JDK mà bạn muốn -->
-					<target>11</target>
+					<release>11</release> <!-- Thay bằng phiên bản JDK bạn đang dùng -->
 				</configuration>
 			</plugin>
 		</plugins>
