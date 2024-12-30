@@ -257,9 +257,10 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.13.0</version>
+				<version>3.8.0</version>
 				<configuration>
-					<release>17</release> <!-- Thay bằng phiên bản JDK bạn đang dùng -->
+					<source>11</source> <!-- Hoặc phiên bản JDK tối thiểu của Koyeb -->
+					<target>11</target>
 				</configuration>
 			</plugin>
 		</plugins>
