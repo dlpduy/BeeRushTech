@@ -259,8 +259,9 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.8.0</version>
 				<configuration>
-					<source>11</source> <!-- Hoặc phiên bản JDK tối thiểu của Koyeb -->
-					<target>11</target>
+					<release>17</release> <!-- Thay bằng phiên bản JDK bạn đang dùng -->
+					<source>11</source> <!-- Thay bằng phiên bản JDK bạn đang dùng -->
+					<target>11</target> <!-- Thay bằng phiên bản JDK bạn đang dùng -->
 				</configuration>
 			</plugin>
 		</plugins>
