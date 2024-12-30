@@ -263,7 +263,7 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.8.0</version>
 				<configuration>
-					<release>11</release> <!-- Thay bằng phiên bản JDK bạn đang dùng -->
+					<release>17</release> <!-- Thay bằng phiên bản JDK bạn đang dùng -->
 				</configuration>
 			</plugin>
 		</plugins>
