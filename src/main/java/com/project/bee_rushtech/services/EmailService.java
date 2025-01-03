@@ -35,11 +35,13 @@ public class EmailService {
     public void sendEmail(Email email) {
         MimeMessage message = javaMailSender.createMimeMessage();
         try {
-            MimeMessageHelper helper = new MimeMessageHelper(message, true); 
+            MimeMessageHelper helper = new MimeMessageHelper(message, true);
             helper.setFrom("beerushtech@gmail.com"); // tài khoản gửi mail
             helper.setTo(email.getToEmail()); // tài khoản nhận mail
             helper.setSubject(email.getSubject()); // tiêu đề mail
             helper.setText(email.getBody(), true); // nội dung mail
+            message.setContent(email.getBody(), "text/html; charset=UTF-8");
+
             javaMailSender.send(message); // gửi mail
         } catch (Exception e) {
             e.printStackTrace();

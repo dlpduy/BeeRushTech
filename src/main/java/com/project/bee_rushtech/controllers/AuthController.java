@@ -144,7 +144,7 @@ public class AuthController {
 
         @PostMapping("/reset-password")
         public ResponseEntity<ResetPasswordResponse> resetPassword(HttpServletRequest request,
-                        @RequestBody String email)
+                        @RequestParam String email)
                         throws InvalidException {
                 User currentUser = this.userService.getUserByEmail(email); // kiểm tra xem email có tồn tại trong db
                                                                            // không
@@ -156,8 +156,6 @@ public class AuthController {
                 resetPasswordResponse.setToken(token);
                 currentUser.setPasswordResetToken(token);
                 this.userService.updatePasswordResetToken(token, currentUser);
-                String resetUrl = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
-                                + "/customer/resetpassword?token=" + token;
 
                 Email newEmail = new Email(email, "[BeeRushTech] Reset your password",
                                 "<html>"
@@ -166,8 +164,8 @@ public class AuthController {
                                                 + ",</p>"
                                                 + "<p>Chúng tôi nhận thấy bạn đã quên mật khẩu đăng nhập và đang yêu cầu cấp lại mật khẩu cho tài khoản liên kết với <strong>"
                                                 + email + "</strong>.</p>"
-                                                + "<p>Vui lòng nhấp vào liên kết dưới đây để đặt lại mật khẩu của bạn:</p>"
-                                                + "<p><a href='" + resetUrl + "'>" + resetUrl + "</a></p>"
+                                                + "<p>Vui lòng nhập mã OTP dưới đây để đặt lại mật khẩu của bạn:</p>"
+                                                + "<p style='font-weight: bold;'> " + token + "</p>"
                                                 + "<br>"
                                                 + "<p>Trân trọng,</p>"
                                                 + "<p>Đội ngũ Bee RushTech</p>"
