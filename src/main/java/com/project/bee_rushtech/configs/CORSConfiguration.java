@@ -29,7 +29,9 @@ public class CORSConfiguration {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000")); // Allow all origins
+        configuration.setAllowedOrigins(Arrays.asList("https://bee-rush-tech-mflhp0o2e-dlpduys-projects.vercel.app")); // Allow
+                                                                                                                       // all
+                                                                                                                       // origins
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE",
                 "OPTIONS")); // Allowed methods
         configuration.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type",
