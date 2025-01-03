@@ -144,7 +144,7 @@ public class AuthController {
 
         @PostMapping("/reset-password")
         public ResponseEntity<ResetPasswordResponse> resetPassword(HttpServletRequest request,
-                        @RequestParam("email") String email)
+                        @RequestBody String email)
                         throws InvalidException {
                 User currentUser = this.userService.getUserByEmail(email); // kiểm tra xem email có tồn tại trong db
                                                                            // không
