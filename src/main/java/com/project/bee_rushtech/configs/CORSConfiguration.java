@@ -30,8 +30,7 @@ public class CORSConfiguration {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOrigins(Arrays.asList(
-                "http://bee-rush-tech-fe-git-main-dlpduys-projects.vercel.app",
-                "http://localhost:3000", "https://bee-rush-tech-fe.vercel.app"));
+                "http://localhost:3000", "https://beerushtech.vercel.app"));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type", "Accept"));
         configuration.setAllowCredentials(true);
