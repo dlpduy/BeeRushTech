@@ -67,7 +67,7 @@ public class ProductService implements IProductService {
                     .description(product.getDescription())
                     .price(product.getPrice())
                     .importPrice(product.getImportPrice())
-                    .thumbnail(product.getThumbnail())
+                    .thumbnail("https://bee-rush-tech-fe.up.railway.app/images/" + product.getId() + "/image.png")
                     .category(product.getCategory())
                     .available(product.getAvailable())
                     .quantity(product.getQuantity())
