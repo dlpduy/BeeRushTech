@@ -13,6 +13,7 @@ import com.project.bee_rushtech.models.User;
 import com.project.bee_rushtech.utils.SecurityUtil;
 
 import jakarta.mail.internet.MimeMessage;
+import jakarta.mail.internet.MimeUtility;
 import jakarta.servlet.http.HttpServletRequest;
 
 import org.springframework.mail.javamail.JavaMailSender;
@@ -38,7 +39,7 @@ public class EmailService {
             MimeMessageHelper helper = new MimeMessageHelper(message, true);
             helper.setFrom("beerushtech@gmail.com"); // tài khoản gửi mail
             helper.setTo(email.getToEmail()); // tài khoản nhận mail
-            helper.setSubject(email.getSubject()); // tiêu đề mail
+            helper.setSubject(MimeUtility.encodeText(email.getSubject(), "UTF-8", "B")); // tiêu đề mail
             helper.setText(email.getBody(), true); // nội dung mail
             message.setContent(email.getBody(), "text/html; charset=UTF-8");
 
@@ -98,6 +99,7 @@ public class EmailService {
                 + "<p><strong>Lưu ý:</strong></p>"
                 + "<ul>"
                 + "<li style='color: red;'>Trước khi nhận gói hàng, vui lòng kiểm tra để đảm bảo rằng gói hàng không bị hư hỏng hoặc bị mở trước khi đến tay bạn. Nếu gói hàng bị hư hỏng và bạn nghi ngờ rằng gói hàng đã bị mở trước, hãy tạo phiếu khiếu nại với đơn vị vận chuyển. Chỉ bằng cách này, chúng tôi mới có thể xác định bên chịu trách nhiệm và nếu cần, hoàn tiền hoặc sắp xếp lại lô hàng khác.</li>"
+                + "<br>"
                 + "<li style='color: red;'>Trong thời gian thuê, nếu có bất kỳ hư hại nào xảy ra đối với thiết bị, người thuê sẽ chịu trách nhiệm toàn bộ chi phí sửa chữa. Trong trường hợp thiết bị không thể sửa chữa, người thuê phải bồi thường giá trị mua mới của thiết bị. Ngoài ra, người thuê cần bồi thường cho bất kỳ thiệt hại kinh tế nào do thiết bị không thể được cho thuê.</li>"
                 + "</ul>"
                 + "<br>"
@@ -166,6 +168,7 @@ public class EmailService {
                 + "<p><strong>Lưu ý:</strong></p>"
                 + "<ul>"
                 + "<li style='color: red;'>Trước khi nhận hàng, vui lòng kiểm tra để đảm bảo gói hàng không bị hư hỏng hoặc bị can thiệp. Nếu gói hàng bị hư hỏng và bạn nghi ngờ rằng nó đã bị mở trước, hãy tạo phiếu khiếu nại với đơn vị vận chuyển. Chỉ bằng cách này, chúng tôi mới có thể xác định bên chịu trách nhiệm và nếu cần, hoàn tiền hoặc sắp xếp lô hàng khác.</li>"
+                + "<br>"
                 + "<li style='color: red;'>Trong thời gian thuê, nếu thiết bị bị hư hại, người thuê chịu trách nhiệm toàn bộ chi phí sửa chữa. Nếu thiết bị không thể sửa chữa, người thuê phải bồi thường giá trị mua mới của thiết bị. Ngoài ra, người thuê phải bồi thường cho bất kỳ thiệt hại kinh tế nào do thiết bị không thể cho thuê.</li>"
                 + "</ul>"
                 + "<br>"
@@ -224,6 +227,7 @@ public class EmailService {
                 + "<p><strong>Lưu ý:</strong></p>"
                 + "<ul>"
                 + "<li style='color: red;'>Nếu bạn có bất kỳ thắc mắc nào về quá trình hủy hoặc hoàn tiền, vui lòng liên hệ với chúng tôi càng sớm càng tốt để được giải đáp.</li>"
+                + "<br>"
                 + "<li style='color: red;'>Nếu bạn gặp vấn đề với quá trình hoàn tiền, vui lòng liên hệ bộ phận chăm sóc khách hàng để được hỗ trợ.</li>"
                 + "</ul>"
                 + "<br>"
@@ -288,6 +292,7 @@ public class EmailService {
                     + "<p><strong>Lưu ý quan trọng:</strong></p>"
                     + "<ul>"
                     + "<li style='color: red;'>Vui lòng đảm bảo rằng sản phẩm được trả lại trong tình trạng như khi thuê. Sản phẩm bị hư hỏng hoặc thiếu có thể dẫn đến các khoản phí phát sinh.</li>"
+                    + "<br>"
                     + "<li style='color: red;'>Nếu bạn không thể trả sản phẩm trước ngày hết hạn, vui lòng liên hệ với chúng tôi ngay lập tức để sắp xếp gia hạn hoặc giải pháp thay thế.</li>"
                     + "</ul>"
                     + "<br>"
@@ -319,6 +324,7 @@ public class EmailService {
                     + "<p><strong>Lưu ý quan trọng:</strong></p>"
                     + "<ul>"
                     + "<li style='color: red;'>Vui lòng đảm bảo rằng sản phẩm được trả lại trong tình trạng như khi thuê. Sản phẩm bị hư hỏng hoặc thiếu có thể dẫn đến các khoản phí phát sinh.</li>"
+                    + "<br>"
                     + "<li style='color: red;'>Nếu bạn không thể trả sản phẩm đúng thời hạn, vui lòng liên hệ với chúng tôi ngay lập tức để sắp xếp gia hạn hoặc giải pháp thay thế.</li>"
                     + "</ul>"
                     + "<br>"
